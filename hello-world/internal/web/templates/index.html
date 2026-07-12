@@ -1,0 +1,50 @@
+{{define "index.html"}}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{.Title}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-900 text-slate-100">
+    <header class="border-b border-white/10 bg-white/5 backdrop-blur">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+        <div>
+          <p class="text-sm uppercase tracking-[0.35em] text-cyan-300">My Stack</p>
+          <h1 class="text-lg font-semibold text-white">Go, HTMX, Tailwind CSS</h1>
+        </div>
+        <span class="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">
+          Server rendered demo
+        </span>
+      </div>
+    </header>
+
+    <main class="flex min-h-[calc(100vh-8rem)] items-center justify-center px-6 py-16">
+      <section class="w-full max-w-3xl rounded-3xl border border-white/10 bg-white/10 p-8 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl md:p-12">
+        <p class="text-sm font-medium uppercase tracking-[0.35em] text-cyan-200">Hello world</p>
+        <h2 class="mt-4 text-4xl font-bold tracking-tight text-white md:text-6xl">
+          Build with Go on the backend and HTMX on the front end.
+        </h2>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+          The greeting below is loaded from the Go server with HTMX and styled with Tailwind CSS.
+        </p>
+
+        <div id="greeting" class="mt-8" hx-get="/greeting" hx-trigger="load" hx-swap="innerHTML">
+          <div class="animate-pulse rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-slate-300">
+            Loading greeting...
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-black/20">
+      <div class="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-4 text-sm text-slate-300 md:flex-row md:items-center md:justify-between">
+        <p>Built with Go, HTMX, and Tailwind CSS.</p>
+        <p>&copy; {{.Year}} My Stack</p>
+      </div>
+    </footer>
+  </body>
+</html>
+{{end}}
