@@ -10,7 +10,7 @@ My learning repo for my preferred full stack
 
 ## Index
 
-* "Hello-world"\tClassic program to demonstrate the stack
+* "Hello-world" Classic program to demonstrate the stack
 
 ## Hello World Demo
 
